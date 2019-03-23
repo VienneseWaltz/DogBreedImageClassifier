@@ -56,10 +56,7 @@ def get_pet_labels(images_dir):
     
     for idx in range(0, len(in_files), 1): 
         if in_files[idx][0] != ".":
-            pet_image_name = in_files[idx].split("_")
-            # Check if the first character is uppercase letter. If it is, then lowercase that first character
-            if pet_image_name[0].isupper() : 
-                pet_image_name = pet_image_name.lower()
+            pet_image_name = in_files[idx].split("_")         
             # Create a temporary label variable to hold pet label name
             pet_label = " "
             
@@ -67,7 +64,7 @@ def get_pet_labels(images_dir):
             # the list pet_image_name
             for word in pet_image_name: 
                 if word.isalpha():
-                    pet_label += word + " "
+                    pet_label += word.lower() + " "
                     pet_label = pet_label.strip()
             if in_files[idx] not in petlabels_dic:
                 petlabels_dic[in_files[idx]] = [pet_label]
