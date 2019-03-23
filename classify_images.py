@@ -82,9 +82,9 @@ def classify_images(images_dir, petlabel_dic, model):
         # found. find() returns the first occurrence of the substring
         found = model_label.find(truth)
         
-        results_dic = petlabel_dic
+        
         # There is a match between pet image label and classifier label and found > 0
         if truth in model_label and (found > 0):
-            results_dic[key].extend([model_label, 1])
+            petlabel_dic[key].extend([model_label, 1])
         else:
-            results_dic[key].extend([model_label, 0])
+            petlabel_dic[key].extend([model_label, 0])
